@@ -1,31 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LearnCSharp
 {
     public class Elipse
     {
-        public Point LeftTopPoint { get; private set; }
-        public Point RightBottomPoint { get; private set; }
-        public double Horizontal { get; private set; }
-        public double Vertical { get; private set; }
+        public double HorizontalRadius { get; private set; }
+        public double VerticalRadius { get; private set; }
 
-        public Elipse(Point lefttopPoint, Point rightbottomPoint)
+        public Elipse(Point leftTopPoint, Point rightBottomPoint)
         {  
-            LeftTopPoint = lefttopPoint;
-            RightBottomPoint = rightbottomPoint;
-            Horizontal = (RightBottomPoint.X - LeftTopPoint.X) / 2;
-            Vertical = (LeftTopPoint.Y - RightBottomPoint.Y) / 2;
-            if (Horizontal < 0)
+            HorizontalRadius = (rightBottomPoint.X - leftTopPoint.X) / 2;
+            VerticalRadius = (leftTopPoint.Y - rightBottomPoint.Y) / 2;
+            if (HorizontalRadius <= 0)
             {
                 throw new ArgumentException(
                     "Горизонтальный радиус должен быть больше нуля"
                 );
             }
-            if ( Vertical < 0)
+            if (VerticalRadius <= 0)
             {
                 throw new ArgumentException(
                     "Вертикальный радиус должен быть больше нуля"
@@ -34,13 +26,11 @@ namespace LearnCSharp
         }
         public double GetPerimeter()
         {
-            double Perimeter = 2 * Math.PI * Math.Sqrt(((Math.Pow(Horizontal, 2)) + (Math.Pow(Vertical, 2))) / 2);
-            return (Perimeter);
+            return  2 * Math.PI * Math.Sqrt(((Math.Pow(HorizontalRadius, 2)) + (Math.Pow(VerticalRadius, 2))) / 2);
         }
         public double GetSquare()
         {
-            double Square = Horizontal * Vertical * Math.PI;
-            return (Square); 
+            return HorizontalRadius * VerticalRadius * Math.PI; 
         }
     }
 }

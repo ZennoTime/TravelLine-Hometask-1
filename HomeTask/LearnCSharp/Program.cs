@@ -1,5 +1,4 @@
 ﻿using System;
-
 using LearnCSharp;
 
 class Program
@@ -16,18 +15,18 @@ class Program
             X = 20,
             Y = 6
         };
-        try
-        {
-            Elipse elipse = new Elipse(lefttoppoint, rightbottompoint);
-            double perimeter = elipse.GetPerimeter();
-            double square = elipse.GetSquare();
-            Console.WriteLine($"Длина дуги Элипса равна = {perimeter}");
-            Console.WriteLine($"Площадь эллипса = {square}");
-            Console.WriteLine($"Исходные координаты точек: {elipse.LeftTopPoint.ToString()} {elipse.RightBottomPoint.ToString()}");
-        }
-        catch (ArgumentException ex)
-        {
-            Console.WriteLine(ex.Message);
-        }
+            try
+            {
+                Elipse elipse = new Elipse(lefttoppoint, rightbottompoint);
+                double perimeter = elipse.GetPerimeter();
+                double square = elipse.GetSquare();
+                Console.WriteLine($"Длина дуги Элипса равна = {perimeter}");
+                Console.WriteLine($"Площадь эллипса = {square}");
+                Console.WriteLine($"Исходные координаты точек: {lefttoppoint.ToString()} {rightbottompoint.ToString()}");
+            }
+            catch (ArgumentException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
     }
 }
